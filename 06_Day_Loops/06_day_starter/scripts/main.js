@@ -6,7 +6,7 @@ for (let i = 0; i <= 10; i++) {
     console.log(i);
 }
 //2
-i=0;
+let i=0;
 while ( i <= 10) {
     console.log(i);
     i++;
@@ -109,16 +109,7 @@ function RandomArray(count, max) {
 console.log(RandomArray(5, 100));
 
 //Task 15
-function RandomId(length) {
-    const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
-    let randomId = '';
-    for (let i = 0; i < length; i++) {
-        randomId += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return randomId;
-}
-
-console.log(RandomId(6));
+//same as task 1 mid
 
 //Middle LVL
 //Task 1
@@ -134,7 +125,89 @@ function RandomId(length) {
 
 console.log(RandomId(length));
 
+//Task 2
+function RandomHex() {
+    const randomNumber = Math.floor(Math.random() * 0xFFFFFF);
+    const hexNumber = randomNumber.toString(16).padStart(6, '0');
+    return `#${hexNumber}`;
+}
 
+const Hex = RandomHex();
+console.log(Hex);
 
+//Task 3
+function RandomRGB() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+const randomRGB = RandomRGB();
+console.log(randomRGB);
+
+//Task 4
+const countries = [
+    "albania", "bolivia", "canada", "denmark", "ethiopia",
+    "finland", "germany", "hungary", "ireland", "iceland", "japan", "kenya"
+];
+
+const uppercaseCountries = countries.map(country => country.toUpperCase());
+
+console.log(uppercaseCountries);
+
+//Task 5
+const countryLengths = countries.map(country => country.length);
+
+console.log(countryLengths);
+
+//Task 6
+const ArrayOfArrays = countries.map((country) => [
+    country.charAt(0).toUpperCase() + country.slice(1), 
+    country.toUpperCase().slice(0,3),
+    country.length
+]);
+
+console.log(ArrayOfArrays);
+
+//Task 7
+const Land = countries.filter(country => country.includes('land'));
+
+if (Land.length > 0) {
+    const formattedLand = Land.map(country =>
+        country.charAt(0).toUpperCase() + country.slice(1)
+    );
+    console.log(formattedLand);
+} else {
+    console.log('All these countries are without land');
+}
+
+//Task 8
+const Ia = countries.filter(country => country.endsWith('ia'));
+
+if (Ia.length > 0) {
+    const formattedIa = Ia.map(country =>
+        country.charAt(0).toUpperCase() + country.slice(1)
+    );
+    console.log(formattedIa);
+} else {
+    console.log('These are countries ends without ia');
+}
+
+//Task 9
+let max=0;
+let maxCountry ='';
+for (let i=0; i<countries.length; i++){
+    if (countries[i].length > max){
+        max=countries[i].length;
+        maxCountry = countries[i];
+    }
+}
+console.log(maxCountry);
+
+//Task 10
+const fiveLetter = countries.filter(country => country.length === 5);
+console.log(fiveLetter);
 
 
