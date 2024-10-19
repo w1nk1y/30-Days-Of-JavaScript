@@ -110,3 +110,81 @@ console.log(norwayIndex);
 const russiaIndex = Countries.findIndex(country => country === 'Russia');
 console.log(russiaIndex);
 
+//Middle LVL
+//1
+const totalPrice = products
+  .map(product => product.price)
+  .filter(price => typeof price === 'number')
+  .reduce((acc, curr) => acc + curr, 0);
+
+console.log(totalPrice);
+
+//2
+const TotalPrice = products.reduce((acc, curr) => {
+    if (typeof curr.price === 'number') {
+      return acc + curr.price;
+    } else {
+      return acc;
+    }
+  }, 0);
+  
+  console.log(TotalPrice);
+
+//3
+function categorizeCountries(pattern) {
+    return countries.filter(country => country.name.toLowerCase().includes(pattern.toLowerCase()));
+  }
+    
+console.log(categorizeCountries('land')); 
+console.log(categorizeCountries('ia')); 
+console.log(categorizeCountries('stan'));
+
+//4
+function countLetters() {
+    return countries.reduce((acc, curr) => {
+      const initial = curr.name[0].toLowerCase();
+      if (acc[initial]) {
+        acc[initial]++;
+      } else {
+        acc[initial] = 1;
+      }
+      return acc;
+    }, {});
+  }
+console.log(countLetters());
+//5
+function getFirstTenCountries() {
+  return countries.slice(0, 10);
+}
+console.log(getFirstTenCountries());
+
+//6
+function getLastTenCountries() {
+  return countries.slice(-10);
+}
+console.log(getLastTenCountries());
+
+//7
+
+function getMostCommonInitialLetter() {
+  const initials = countries.map(country => country.name[0]);
+  const initialCounts = initials.reduce((acc, initial) => {
+    acc[initial] = (acc[initial] || 0) + 1;
+    return acc;
+  }, {});
+
+  let mostCommonInitial = '';
+  let maxCount = 0;
+
+  for (const [initial, count] of Object.entries(initialCounts)) {
+    if (count > maxCount) {
+      mostCommonInitial = initial;
+      maxCount = count;
+    }
+  }
+
+  return mostCommonInitial;
+}
+
+console.log(getMostCommonInitialLetter());
+  
