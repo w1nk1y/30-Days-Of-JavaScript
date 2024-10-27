@@ -11,4 +11,3 @@ const countries = [
     'Japan',
     'Kenya'
   ];
-export default countries;
