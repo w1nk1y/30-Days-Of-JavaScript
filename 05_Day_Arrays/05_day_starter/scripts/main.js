@@ -10,7 +10,7 @@ console.log(sevenArray.length);
 
 //Task 4
 console.log(sevenArray[0]);
-console.log(sevenArray[sevenArray.length-1/2]);
+console.log(sevenArray[Math.floor(sevenArray.length/2)]);
 console.log(sevenArray[sevenArray.length-1]);
 
 //Task 5
@@ -24,7 +24,7 @@ console.log(itCompanies);
 console.log(itCompanies.length);
 //Task 9
 console.log(itCompanies[0]);
-console.log(itCompanies[itCompanies.length-1/2]);
+console.log(itCompanies[Math.floor(itCompanies.length /2)]);
 console.log(itCompanies[itCompanies.length-1]);
 //Task 10, 11
 for (let i of itCompanies){
@@ -54,7 +54,7 @@ for (let i of itCompanies){
         }
     }
     if ( counter>1){
-        filtered.push(itCompanies[i]);
+        filtered.push(i);
     }
     counter=0;
 }
@@ -113,8 +113,7 @@ console.log(itCompanies);
 //Middle LVL
 
 //Task 1
-import countries from './countries.js';
-import webTechs from './web_techs.js';
+
 
 //Task 2
 let text = 'I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.';
