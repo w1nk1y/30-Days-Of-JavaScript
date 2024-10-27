@@ -1,3 +1,4 @@
+//Easy LVL
 //Task 1
 let firstName = "Andrei";
 let lastName = "Tate";
@@ -41,3 +42,19 @@ console.log(now.getDay());
 console.log(now.getHours()); 
 console.log(now.getMinutes()); 
 console.log(Math.floor(now.getTime() / 1000));
+
+//Hard LVL
+function formatDateTime(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0'); 
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+
+    return `${year}-${month}-${day} ${hours}:${minutes}`;
+}
+
+const NOW = new Date();
+const formattedTime = formatDateTime(NOW);
+
+console.log(formattedTime);
